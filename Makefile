@@ -1,13 +1,15 @@
 install:
 	npm install
 
-start:
-#	npx babel-node src/bin/brain-games.js
-	npx babel-node src/bin/brain-even.js
+start calc:
+	npx babel-node src/bin/games/brain-calc.js
+start even:
+	npx babel-node src/bin/games/brain-even.js
 
 publish:
 	npm publish --dry-run
 
-lint:
-#	npx eslint src/bin/brain-games.js
-	npx eslint src/bin/brain-even.js
+lint calc:
+	npx eslint src/bin/games/brain-calc.js
+lint even:	
+	npx eslint src/bin/games/brain-even.js
