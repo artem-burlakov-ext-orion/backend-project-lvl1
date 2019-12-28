@@ -1,3 +1,4 @@
+
 import readlineSync from 'readline-sync';
 
 const lowNumber = 1;
@@ -17,6 +18,7 @@ export const getRandomOperator = () => {
   return operators[getRandomNumber(0, operators.length - 1)];
 }
 
+
 export const numbersGameObj = {
   welcome: 'Answer \'yes\' if the number is even, otherwise answer \'no\'.',
   getQuestion: function () {
@@ -34,6 +36,26 @@ export const calcGameObj = {
   },
   getCorrectAnswer: function (str) {
     return eval(str);
+  }
+};
+
+export const gcdGameObj = {
+  welcome: 'Find the greatest common divisor of given numbers.',
+  getQuestion: function () {
+    return `${getRandomNumber(lowNumber, highNumber)} ${getRandomNumber(lowNumber, highNumber)}`
+  },
+  getCorrectAnswer: function (str) {
+    const strToNumArr = str.split(' ').map(Number);
+    let firstNumber = Math.max(...strToNumArr);
+    let secondNumber = Math.min(...strToNumArr);
+    let remOnDiv = firstNumber % secondNumber;
+    while (remOnDiv !== 0) {
+      firstNumber = secondNumber;
+      secondNumber = remOnDiv;
+      remOnDiv = firstNumber % secondNumber;
+      continue;
+    }
+    return secondNumber;
   }
 };
 
