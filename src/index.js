@@ -114,8 +114,40 @@ export const primeGameObj = {
   },
 };
 
-export const baseGame = (gameObj) => {
+export const menu = () => {
   console.log('Welcome to the Brain Games!');
+  console.log('[1] --- brain-even');
+  console.log('[2] --- brain-calc');
+  console.log('[3] --- brain-gcd');
+  console.log('[4] --- brain-prime');
+  console.log('[5] --- brain-progression');
+  const userAnswer = readlineSync.question('What game do you want to play: ');
+  let gameObj;
+  switch (userAnswer) {
+    case '1':
+      gameObj = numbersGameObj;
+      break;
+    case '2':
+      gameObj = calcGameObj;
+      break;
+    case '3':
+      gameObj = gcdGameObj;
+      break;
+    case '4':
+      gameObj = primeGameObj;
+      break;
+    case '5':
+      gameObj = progressionGameObj;
+      break;
+    default:
+      gameObj = 'exit';
+      break;
+  }
+  return gameObj;
+};
+
+export const baseGame = (gameObj) => {
+  // console.log('Welcome to the Brain Games!');
   console.log(gameObj.welcome);
   const userName = getName();
   console.log(`Hello, ${userName}!`);
