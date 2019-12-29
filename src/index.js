@@ -148,7 +148,6 @@ export const menu = () => {
 };
 
 export const baseGame = (gameObj) => {
-  // console.log('Welcome to the Brain Games!');
   console.log(gameObj.welcome);
   const userName = getName();
   console.log(`Hello, ${userName}!`);
