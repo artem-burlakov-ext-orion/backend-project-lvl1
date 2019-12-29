@@ -116,6 +116,7 @@ export const primeGameObj = {
 
 export const menu = () => {
   console.log('Welcome to the Brain Games!');
+  console.log('If you want to exit - press any other key.');
   console.log('[1] --- brain-even');
   console.log('[2] --- brain-calc');
   console.log('[3] --- brain-gcd');
