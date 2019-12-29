@@ -100,13 +100,15 @@ export const progressionGameObj = {
 
 export const primeGameObj = {
   welcome: 'Answer "yes" if given number is prime. Otherwise answer "no".',
+  correctAnswer: null,
   getQuestion() {
-    return `${getRandomNumber(lowNumber + 1, highNumber)}`;
+    const number = getRandomNumber(lowNumber + 1, highNumber);
+    this.correctAnswer = this.getCorrectAnswer(number);
+    return `${number}`;
   },
-  getCorrectAnswer(str) {
-    const strToNum = Number(str);
-    for (let i = 2; i < strToNum; i += 1) {
-      if (strToNum % i === 0) {
+  getCorrectAnswer(number) {
+    for (let i = 2; i < number; i += 1) {
+      if (number % i === 0) {
         return 'no';
       }
     }
