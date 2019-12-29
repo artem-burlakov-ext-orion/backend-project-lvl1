@@ -1,7 +1,15 @@
 {
   "name": "brain-games-new",
   "version": "1.0.0",
-  "description": "",
+  "description": "brain development games",
+  "keywords": [
+    "brain development",
+    "brain games",
+    "gcd",
+    "progression",
+    "even numbers",
+    "prime numbers"
+  ],
   "main": "index.js",
   "bin": {
     "brain-even": "dist/bin/games/brain-even.js",

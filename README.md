@@ -6,4 +6,3 @@
 
 [![Build Status](https://travis-ci.com/eifory/backend-project-lvl1.svg?branch=master)](https://travis-ci.com/eifory/backend-project-lvl1)
 
-https://asciinema.org/a/HCOQB1EOPSs9qdFiwmp8nbBnp

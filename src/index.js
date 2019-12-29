@@ -11,45 +11,44 @@ const highNumber = 100;
 const arithFuncArr = [
   { func: add, symbol: '+' },
   { func: sub, symbol: '-' },
-  { func: mul, symbol: '*' }
+  { func: mul, symbol: '*' },
 ];
 
-const hiddenNum = '..';
+const hiddenNumSymbol = '..';
 const numOfProgression = 2;
 const lengthOfProgression = 10;
 
 export const getName = () => {
   const userName = readlineSync.question('May I have your name? ');
   return userName;
-}
+};
 
-export const getRandomNumber = (low, high) => {
-  return Math.floor(Math.random() * (high - low + 1) + low);
-}
+export const getRandomNumber = (low, high) => Math.floor(Math.random() * (high - low + 1) + low);
 
-export const getProgression = (length, numOfProgression) => {
-  let arithProgression = [getRandomNumber(lowNumber, highNumber)];
-  let func = arithFuncArr[getRandomNumber(0, arithFuncArr.length - 1)].func;
-  for (let i = 0; i < length - 1; i++) {
-    let newElem = func(arithProgression[i], numOfProgression);
+export const getProgression = (length) => {
+  const arithProgression = [getRandomNumber(lowNumber, highNumber)];
+  const { func } = arithFuncArr[getRandomNumber(0, arithFuncArr.length - 1)];
+  for (let i = 0; i < length - 1; i += 1) {
+    const newElem = func(arithProgression[i], numOfProgression);
     arithProgression.push(newElem);
   }
   return arithProgression;
-}
+};
 
 export const getModifiedProgression = (arr) => {
-  const index = getRandomNumber(0, arr.length - 1);
-  const hiddenElem = arr[index];
-  arr[index] = hiddenNum;
-  return { arr, hiddenElem };
-}
+  const copyArr = arr;
+  const index = getRandomNumber(0, copyArr.length - 1);
+  const hiddenNum = copyArr[index];
+  copyArr[index] = hiddenNumSymbol;
+  return { copyArr, hiddenNum };
+};
 
 export const numbersGameObj = {
   welcome: 'Answer \'yes\' if the number is even, otherwise answer \'no\'.',
   correctAnswer: null,
-  getQuestion: function () {
+  getQuestion() {
     const randomNumber = getRandomNumber(lowNumber, highNumber);
-    this.correctAnswer = (randomNumber % 2) ? 'yes' : 'no';
+    this.correctAnswer = (randomNumber % 2 === 0) ? 'yes' : 'no';
     return `${randomNumber}`;
   },
 };
@@ -57,25 +56,25 @@ export const numbersGameObj = {
 export const calcGameObj = {
   welcome: 'What is the result of the expression?',
   correctAnswer: null,
-  getQuestion: function () {
+  getQuestion() {
     const firstNumber = getRandomNumber(lowNumber, highNumber);
     const secondNumber = getRandomNumber(lowNumber, highNumber);
     const randomArithFuncObj = arithFuncArr[getRandomNumber(0, arithFuncArr.length - 1)];
-    this.correctAnswer = randomArithFuncObj.func(firstNumber, secondNumber);
-    return `${firstNumber} ${randomArithFuncObj.symbol} ${secondNumber}`
+    this.correctAnswer = `${randomArithFuncObj.func(firstNumber, secondNumber)}`;
+    return `${firstNumber} ${randomArithFuncObj.symbol} ${secondNumber}`;
   },
 };
 
 export const gcdGameObj = {
   welcome: 'Find the greatest common divisor of given numbers.',
   correctAnswer: null,
-  getQuestion: function () {
+  getQuestion() {
     const firstNumber = getRandomNumber(lowNumber, highNumber);
     const secondNumber = getRandomNumber(lowNumber, highNumber);
-    this.correctAnswer = this.getCorrectAnswer(firstNumber, secondNumber);
+    this.correctAnswer = `${this.getCorrectAnswer(firstNumber, secondNumber)}`;
     return `${firstNumber} ${secondNumber}`;
   },
-  getCorrectAnswer: function (firstNumber, secondNumber) {
+  getCorrectAnswer(firstNumber, secondNumber) {
     let maxNumber = Math.max(firstNumber, secondNumber);
     let minNumber = Math.min(firstNumber, secondNumber);
     let remOnDiv = maxNumber % minNumber;
@@ -83,41 +82,37 @@ export const gcdGameObj = {
       maxNumber = minNumber;
       minNumber = remOnDiv;
       remOnDiv = maxNumber % minNumber;
-      continue;
     }
     return minNumber;
-  }
+  },
 };
 
 export const progressionGameObj = {
   welcome: 'What number is missing in the progression?',
   correctAnswer: null,
-  getQuestion: function () {
-    const arithProgression = getProgression(lengthOfProgression, numOfProgression);
+  getQuestion() {
+    const arithProgression = getProgression(lengthOfProgression);
     const modifiedProgression = getModifiedProgression(arithProgression);
-    this.correctAnswer = modifiedProgression.hiddenElem;
-    return modifiedProgression.arr.join(' ');
-  }
+    this.correctAnswer = `${modifiedProgression.hiddenNum}`;
+    return modifiedProgression.copyArr.join(' ');
+  },
 };
 
 export const primeGameObj = {
   welcome: 'Answer "yes" if given number is prime. Otherwise answer "no".',
-  getQuestion: function () {
-    return `${getRandomNumber(lowNumber + 1, highNumber)}`
+  getQuestion() {
+    return `${getRandomNumber(lowNumber + 1, highNumber)}`;
   },
-  getCorrectAnswer: function (str) {
+  getCorrectAnswer(str) {
     const strToNum = Number(str);
-    for (let i = 2; i < strToNum; i++) {
+    for (let i = 2; i < strToNum; i += 1) {
       if (strToNum % i === 0) {
         return 'no';
-      } else {
-        continue;
       }
     }
     return 'yes';
-  }
+  },
 };
-
 
 export const baseGame = (gameObj) => {
   console.log('Welcome to the Brain Games!');
@@ -127,17 +122,16 @@ export const baseGame = (gameObj) => {
   let counter = 0;
   while (counter !== 3) {
     const question = gameObj.getQuestion();
-    const correctAnswer = gameObj.correctAnswer;
+    const { correctAnswer } = gameObj;
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (userAnswer == correctAnswer) {
-      console.log('Correct!');
-      counter += 1;
-      continue;
+    if (userAnswer !== correctAnswer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`Let's try again, ${userName}!`);
+      return;
     }
-    console.log(`\'${userAnswer}\' is wrong answer ;(. Correct answer was \'${correctAnswer}\'.`);
-    console.log(`Let\'s try again, ${userName}!`);
-    return;
+    console.log('Correct!');
+    counter += 1;
   }
   console.log(`Congratulations, ${userName}!`);
-}
+};
