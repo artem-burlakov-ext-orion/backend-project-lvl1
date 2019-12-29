@@ -37,6 +37,9 @@
   },
   "homepage": "https://github.com/eifory/backend-project-lvl1#readme",
   "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
     "@babel/cli": "^7.7.5",
     "@babel/core": "^7.7.5",
     "@babel/node": "^7.7.4",
@@ -46,6 +49,5 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-import": "^2.19.1",
-    "readline-sync": "^1.4.10"
   }
 }
