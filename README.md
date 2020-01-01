@@ -12,4 +12,7 @@ install:
   <a href="https://asciinema.org/a/7EyZoJrerYvOMYgSHGzx5gILx"><img src="https://asciinema.org/a/7EyZoJrerYvOMYgSHGzx5gILx.png" width="400"/></a>
 </p>
   
-games: <a href="https://asciinema.org/a/T3bFRAhCSGR5ZR3LRMIW7OZeX"><img src="https://asciinema.org/a/T3bFRAhCSGR5ZR3LRMIW7OZeX.png" width="400"/></a> 
+games:
+<p>
+  <a href="https://asciinema.org/a/T3bFRAhCSGR5ZR3LRMIW7OZeX"><img src="https://asciinema.org/a/T3bFRAhCSGR5ZR3LRMIW7OZeX.png" width="400"/></a>
+</p>
