@@ -4,18 +4,12 @@ export const add = (a, b) => a + b;
 export const sub = (a, b) => a - b;
 export const mul = (a, b) => a * b;
 
-export const lowNumber = 1;
-export const highNumber = 100;
 export const arithFuncArr = [
   { func: add, symbol: '+' },
   { func: sub, symbol: '-' },
   { func: mul, symbol: '*' },
 ];
 
-export const hiddenNumSymbol = '..';
-export const numOfProgression = 2;
-export const lengthOfProgression = 10;
-export const numberOfTries = 3;
 
 export const getRandomNumber = (low, high) => Math.floor(Math.random() * (high - low + 1) + low);
 

@@ -1,11 +1,11 @@
 import baseGame from '..';
-import { getRandomNumber, lowNumber, highNumber } from '../utils';
+import { getRandomNumber } from '../utils';
 
 const primeGameObj = {
   welcome: 'Answer "yes" if given number is prime. Otherwise answer "no".',
   correctAnswer: null,
   getQuestion() {
-    const number = getRandomNumber(lowNumber + 1, highNumber);
+    const number = getRandomNumber(2, 100);
     this.correctAnswer = this.getCorrectAnswer(number);
     return `${number}`;
   },

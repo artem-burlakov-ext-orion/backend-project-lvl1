@@ -1,13 +1,11 @@
 import baseGame from '..';
-import {
-  getRandomNumber, lowNumber, highNumber,
-} from '../utils';
+import { getRandomNumber } from '../utils';
 
 const numbersGameObj = {
   welcome: 'Answer \'yes\' if the number is even, otherwise answer \'no\'.',
   correctAnswer: null,
   getQuestion() {
-    const randomNumber = getRandomNumber(lowNumber, highNumber);
+    const randomNumber = getRandomNumber(1, 100);
     this.correctAnswer = (randomNumber % 2 === 0) ? 'yes' : 'no';
     return `${randomNumber}`;
   },

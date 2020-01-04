@@ -1,5 +1,5 @@
 import baseGame from '..';
-import { getRandomNumber, lowNumber, highNumber } from '../utils';
+import { getRandomNumber } from '../utils';
 
 const gcdGameObj = {
   welcome: 'Find the greatest common divisor of given numbers.',

@@ -1,11 +1,12 @@
 import baseGame from '..';
-import {
-  getRandomNumber, lowNumber, highNumber, arithFuncArr,
-  numOfProgression, hiddenNumSymbol, lengthOfProgression,
-} from '../utils';
+import { getRandomNumber, arithFuncArr } from '../utils';
+
+export const hiddenNumSymbol = '..';
+export const numOfProgression = 2;
+export const lengthOfProgression = 10;
 
 const getProgression = (length) => {
-  const arithProgression = [getRandomNumber(lowNumber, highNumber)];
+  const arithProgression = [getRandomNumber(1, 100)];
   const { func } = arithFuncArr[getRandomNumber(0, arithFuncArr.length - 1)];
   for (let i = 0; i < length - 1; i += 1) {
     const newElem = func(arithProgression[i], numOfProgression);
