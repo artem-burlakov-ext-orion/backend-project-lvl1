@@ -4,7 +4,7 @@ import { getName, numberOfTries } from './utils';
 
 const baseGame = (gameObj) => {
   console.log(gameObj.welcome);
-  const userName = getName();
+  const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   let counter = 0;
   while (counter !== numberOfTries) {

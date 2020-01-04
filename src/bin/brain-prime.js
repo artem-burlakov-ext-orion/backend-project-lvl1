@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import baseGame from '..';
-import primeGameObj from '../games/prime';
+import startPrime from '../games/prime';
 
-baseGame(primeGameObj);
+startPrime();

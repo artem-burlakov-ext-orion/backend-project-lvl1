@@ -1,3 +1,4 @@
+import baseGame from '..';
 import {
   getRandomNumber, lowNumber, highNumber, arithFuncArr,
   numOfProgression, hiddenNumSymbol, lengthOfProgression,
@@ -32,4 +33,6 @@ const progressionGameObj = {
   },
 };
 
-export default progressionGameObj;
+const startProgression = baseGame(progressionGameObj);
+
+export default startProgression;

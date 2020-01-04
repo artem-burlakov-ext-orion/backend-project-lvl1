@@ -17,13 +17,7 @@ export const numOfProgression = 2;
 export const lengthOfProgression = 10;
 export const numberOfTries = 3;
 
-export const getName = () => {
-  const userName = readlineSync.question('May I have your name? ');
-  return userName;
-};
-
 export const getRandomNumber = (low, high) => Math.floor(Math.random() * (high - low + 1) + low);
-
 
 export const menu = () => {
   console.log('-----------------------------');

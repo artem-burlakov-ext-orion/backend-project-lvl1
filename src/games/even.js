@@ -1,4 +1,7 @@
-import { getRandomNumber, lowNumber, highNumber } from '../utils';
+import baseGame from '..';
+import {
+  getRandomNumber, lowNumber, highNumber,
+} from '../utils';
 
 const numbersGameObj = {
   welcome: 'Answer \'yes\' if the number is even, otherwise answer \'no\'.',
@@ -10,5 +13,6 @@ const numbersGameObj = {
   },
 };
 
+const startNumbers = () => baseGame(numbersGameObj);
 
-export default numbersGameObj;
+export default startNumbers;

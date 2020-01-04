@@ -1,3 +1,4 @@
+import baseGame from '..';
 import {
   getRandomNumber, lowNumber, highNumber, arithFuncArr,
 } from '../utils';
@@ -14,4 +15,6 @@ const calcGameObj = {
   },
 };
 
-export default calcGameObj;
+const startCalc = () => baseGame(calcGameObj);
+
+export default startCalc;

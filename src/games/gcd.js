@@ -1,3 +1,4 @@
+import baseGame from '..';
 import { getRandomNumber, lowNumber, highNumber } from '../utils';
 
 const gcdGameObj = {
@@ -22,4 +23,6 @@ const gcdGameObj = {
   },
 };
 
-export default gcdGameObj;
+const startGcd = () => baseGame(gcdGameObj);
+
+export default startGcd;

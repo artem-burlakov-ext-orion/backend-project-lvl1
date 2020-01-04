@@ -1,3 +1,4 @@
+import baseGame from '..';
 import { getRandomNumber, lowNumber, highNumber } from '../utils';
 
 const primeGameObj = {
@@ -18,4 +19,6 @@ const primeGameObj = {
   },
 };
 
-export default primeGameObj;
+const startPrime = () => baseGame(primeGameObj);
+
+export default startPrime;
