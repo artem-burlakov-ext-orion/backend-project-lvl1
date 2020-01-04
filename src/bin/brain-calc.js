@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import startCalc from '../games/calc';
+import startGameCalc from '../games/calc';
 
-startCalc();
+startGameCalc();

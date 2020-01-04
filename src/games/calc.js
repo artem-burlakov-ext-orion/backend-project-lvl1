@@ -1,20 +1,36 @@
-import baseGame from '..';
-import { getRandomNumber, arithFuncArr } from '../utils';
+import gameEngine from '..';
+import getRandomNumber from '../utils';
 
+const add = (a, b) => a + b;
+const sub = (a, b) => a - b;
+const mul = (a, b) => a * b;
+
+const operators = ['-', '+', '*'];
 
 const gameInfo = 'What is the result of the expression?';
+
 const getGameData = () => {
   const firstNumber = getRandomNumber(1, 100);
   const secondNumber = getRandomNumber(1, 100);
-  const randomArithFuncObj = arithFuncArr[getRandomNumber(0, arithFuncArr.length - 1)];
-  const question = `${firstNumber} ${randomArithFuncObj.symbol} ${secondNumber}`;
-  const correctAnswer = `${randomArithFuncObj.func(firstNumber, secondNumber)}`;
+  const index = getRandomNumber(0, operators.length - 1);
+  const operator = operators[index];
+  const question = `${firstNumber} ${operator} ${secondNumber}`;
+  let correctAnswer;
+  if (operator === '-') {
+    correctAnswer = `${sub(firstNumber, secondNumber)}`;
+  }
+  if (operator === '+') {
+    correctAnswer = `${add(firstNumber, secondNumber)}`;
+  }
+  if (operator === '*') {
+    correctAnswer = `${mul(firstNumber, secondNumber)}`;
+  }
   return {
     question,
     correctAnswer,
   };
 };
 
-const startCalc = () => baseGame(gameInfo, getGameData);
+const startGameCalc = () => gameEngine(gameInfo, getGameData);
 
-export default startCalc;
+export default startGameCalc;

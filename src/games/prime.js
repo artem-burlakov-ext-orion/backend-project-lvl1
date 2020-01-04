@@ -1,5 +1,5 @@
-import baseGame from '..';
-import { getRandomNumber } from '../utils';
+import gameEngine from '..';
+import getRandomNumber from '../utils';
 
 const gameInfo = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
@@ -22,6 +22,6 @@ const getGameData = () => {
   };
 };
 
-const startPrime = () => baseGame(gameInfo, getGameData);
+const startGamePrime = () => gameEngine(gameInfo, getGameData);
 
-export default startPrime;
+export default startGamePrime;

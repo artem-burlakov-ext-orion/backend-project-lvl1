@@ -1,7 +1,8 @@
-import baseGame from '..';
-import { getRandomNumber } from '../utils';
+import gameEngine from '..';
+import getRandomNumber from '../utils';
 
 const gameInfo = 'Answer \'yes\' if the number is even, otherwise answer \'no\'.';
+
 const getGameData = () => {
   const randomNumber = getRandomNumber(1, 100);
   const question = `${randomNumber}`;
@@ -12,6 +13,6 @@ const getGameData = () => {
   };
 };
 
-const startNumbers = () => baseGame(gameInfo, getGameData);
+const startGameNumbers = () => gameEngine(gameInfo, getGameData);
 
-export default startNumbers;
+export default startGameNumbers;
