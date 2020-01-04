@@ -5,8 +5,8 @@ const gcdGameObj = {
   welcome: 'Find the greatest common divisor of given numbers.',
   correctAnswer: null,
   getQuestion() {
-    const firstNumber = getRandomNumber(lowNumber, highNumber);
-    const secondNumber = getRandomNumber(lowNumber, highNumber);
+    const firstNumber = getRandomNumber(1, 100);
+    const secondNumber = getRandomNumber(1, 100);
     this.correctAnswer = `${this.getCorrectAnswer(firstNumber, secondNumber)}`;
     return `${firstNumber} ${secondNumber}`;
   },
