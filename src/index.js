@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { getName, numberOfTries } from './utils';
+import { numberOfTries } from './utils';
 
 
 const baseGame = (gameObj) => {

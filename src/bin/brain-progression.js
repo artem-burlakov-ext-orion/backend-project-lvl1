@@ -2,4 +2,4 @@
 
 import startProgression from '../games/progression';
 
-startProgression());
+startProgression();
