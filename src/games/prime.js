@@ -1,24 +1,27 @@
 import baseGame from '..';
 import { getRandomNumber } from '../utils';
 
-const primeGameObj = {
-  welcome: 'Answer "yes" if given number is prime. Otherwise answer "no".',
-  correctAnswer: null,
-  getQuestion() {
-    const number = getRandomNumber(2, 100);
-    this.correctAnswer = this.getCorrectAnswer(number);
-    return `${number}`;
-  },
-  getCorrectAnswer(number) {
-    for (let i = 2; i < number; i += 1) {
-      if (number % i === 0) {
-        return 'no';
-      }
+const gameInfo = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+const getCorrectAnswer = (number) => {
+  for (let i = 2; i < number; i += 1) {
+    if (number % i === 0) {
+      return 'no';
     }
-    return 'yes';
-  },
+  }
+  return 'yes';
 };
 
-const startPrime = () => baseGame(primeGameObj);
+const getGameData = () => {
+  const randomNumber = getRandomNumber(2, 100);
+  const question = `${randomNumber}`;
+  const correctAnswer = getCorrectAnswer(randomNumber);
+  return {
+    question,
+    correctAnswer,
+  };
+};
+
+const startPrime = () => baseGame(gameInfo, getGameData);
 
 export default startPrime;

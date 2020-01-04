@@ -23,17 +23,19 @@ const getModifiedProgression = (arr) => {
   return { copyArr, hiddenNum };
 };
 
-const progressionGameObj = {
-  welcome: 'What number is missing in the progression?',
-  correctAnswer: null,
-  getQuestion() {
-    const arithProgression = getProgression(lengthOfProgression);
-    const modifiedProgression = getModifiedProgression(arithProgression);
-    this.correctAnswer = `${modifiedProgression.hiddenNum}`;
-    return modifiedProgression.copyArr.join(' ');
-  },
+const gameInfo = 'What number is missing in the progression?';
+
+const getGameData = () => {
+  const arithProgression = getProgression(lengthOfProgression);
+  const modifiedProgression = getModifiedProgression(arithProgression);
+  const question = modifiedProgression.copyArr.join(' ');
+  const correctAnswer = `${modifiedProgression.hiddenNum}`;
+  return {
+    question,
+    correctAnswer,
+  };
 };
 
-const startProgression = baseGame(progressionGameObj);
+const startProgression = () => baseGame(gameInfo, getGameData);
 
 export default startProgression;
