@@ -1,10 +1,6 @@
 import gameEngine from '..';
 import getRandomNumber from '../utils';
 
-const add = (a, b) => a + b;
-const sub = (a, b) => a - b;
-const mul = (a, b) => a * b;
-
 const operators = ['-', '+', '*'];
 
 const gameInfo = 'What is the result of the expression?';
@@ -16,14 +12,16 @@ const getGameData = () => {
   const operator = operators[index];
   const question = `${firstNumber} ${operator} ${secondNumber}`;
   let correctAnswer;
-  if (operator === '-') {
-    correctAnswer = `${sub(firstNumber, secondNumber)}`;
-  }
-  if (operator === '+') {
-    correctAnswer = `${add(firstNumber, secondNumber)}`;
-  }
-  if (operator === '*') {
-    correctAnswer = `${mul(firstNumber, secondNumber)}`;
+  switch (operator) {
+    case '-':
+      correctAnswer = `${firstNumber - secondNumber}`;
+      break;
+    case '+':
+      correctAnswer = `${firstNumber + secondNumber}`;
+      break;
+    default:
+      correctAnswer = `${firstNumber * secondNumber}`;
+      break;
   }
   return {
     question,
@@ -31,6 +29,6 @@ const getGameData = () => {
   };
 };
 
-const startGameCalc = () => gameEngine(gameInfo, getGameData);
-
-export default startGameCalc;
+export default function () {
+  return gameEngine(gameInfo, getGameData);
+}

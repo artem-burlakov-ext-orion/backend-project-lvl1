@@ -13,6 +13,6 @@ const getGameData = () => {
   };
 };
 
-const startGameNumbers = () => gameEngine(gameInfo, getGameData);
-
-export default startGameNumbers;
+export default function () {
+  return gameEngine(gameInfo, getGameData);
+}

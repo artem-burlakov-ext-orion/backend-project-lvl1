@@ -38,6 +38,6 @@ const getGameData = () => {
   };
 };
 
-const startGameProgression = () => gameEngine(gameInfo, getGameData);
-
-export default startGameProgression;
+export default function () {
+  return gameEngine(gameInfo, getGameData);
+}

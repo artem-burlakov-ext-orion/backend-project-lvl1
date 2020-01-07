@@ -22,6 +22,6 @@ const getGameData = () => {
   };
 };
 
-const startGameGcd = () => gameEngine(gameInfo, getGameData);
-
-export default startGameGcd;
+export default function () {
+  return gameEngine(gameInfo, getGameData);
+}

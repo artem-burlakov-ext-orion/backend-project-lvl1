@@ -22,6 +22,6 @@ const getGameData = () => {
   };
 };
 
-const startGamePrime = () => gameEngine(gameInfo, getGameData);
-
-export default startGamePrime;
+export default function () {
+  return gameEngine(gameInfo, getGameData);
+}
