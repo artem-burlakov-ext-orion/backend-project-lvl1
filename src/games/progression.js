@@ -3,35 +3,33 @@ import getRandomNumber from '../utils';
 
 const hiddenNumSymbol = '..';
 const lengthOfProgression = 10;
-
-const getArithProgression = (length) => {
-  let stepOfArithProgression = getRandomNumber(-10, 10);
-  while (stepOfArithProgression === 0) {
-    stepOfArithProgression = getRandomNumber(-10, 10);
-  }
-  const arithProgression = [getRandomNumber(1, 100)];
-  for (let i = 1; i < length; i += 1) {
-    const newElem = arithProgression[i - 1] + stepOfArithProgression;
-    arithProgression.push(newElem);
-  }
-  return arithProgression;
-};
-
-const getModifiedArithProgressionData = (arr) => {
-  const copyOfArr = arr;
-  const index = getRandomNumber(0, copyOfArr.length - 1);
-  const hiddenNum = copyOfArr[index];
-  copyOfArr[index] = hiddenNumSymbol;
-  return { copyOfArr, hiddenNum };
-};
+const operators = ['-', '+'];
 
 const gameInfo = 'What number is missing in the progression?';
 
+const getProgressionData = (length) => {
+  const randomNumber = getRandomNumber(1, 10);
+  const index = getRandomNumber(0, operators.length - 1);
+  const operator = operators[index];
+  const stepOfProgression = Number(operator + randomNumber);
+  const progression = [getRandomNumber(1, 100)];
+  const hiddenElemIndex = getRandomNumber(0, length - 1);
+  const hiddenElem = progression[0] + hiddenElemIndex * stepOfProgression;
+  for (let i = 1; i < length; i += 1) {
+    const newElem = progression[i - 1] + stepOfProgression;
+    progression.push(newElem);
+  }
+  progression[hiddenElemIndex] = hiddenNumSymbol;
+  return {
+    progression,
+    hiddenElem,
+  };
+};
+
 const getGameData = () => {
-  const arithProgression = getArithProgression(lengthOfProgression);
-  const modifiedProgressionData = getModifiedArithProgressionData(arithProgression);
-  const question = modifiedProgressionData.copyOfArr.join(' ');
-  const correctAnswer = `${modifiedProgressionData.hiddenNum}`;
+  const progressionData = getProgressionData(lengthOfProgression);
+  const question = progressionData.progression.join(' ');
+  const correctAnswer = `${progressionData.hiddenElem}`;
   return {
     question,
     correctAnswer,
