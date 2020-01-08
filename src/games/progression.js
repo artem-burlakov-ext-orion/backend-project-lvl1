@@ -21,10 +21,10 @@ const getGameData = () => {
   const randomNumber = getRandomNumber(1, 10);
   const operator = operators[getRandomNumber(0, operators.length - 1)];
   const step = Number(`${operator}${randomNumber}`);
-  const progression = [getRandomNumber(1, 100)];
+  const firstElem = getRandomNumber(1, 100);
   const hiddenElemIndex = getRandomNumber(0, lengthOfProgression - 1);
-  const hiddenElem = progression[0] + hiddenElemIndex * step;
-  const question = getQuestion(progression[0], step, hiddenElemIndex);
+  const hiddenElem = firstElem + hiddenElemIndex * step;
+  const question = getQuestion(firstElem, step, hiddenElemIndex);
   const correctAnswer = String(hiddenElem);
   return {
     question,

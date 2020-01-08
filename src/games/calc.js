@@ -14,6 +14,7 @@ const getCalcResult = (operator, firstNumber, secondNumber) => {
     case '*':
       return String(firstNumber * secondNumber);
     default:
+      throw new Error(`${operator} is wrong operator!`);
   }
 };
 
