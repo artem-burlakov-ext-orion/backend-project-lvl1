@@ -2,15 +2,14 @@ import readlineSync from 'readline-sync';
 
 const numberOfTries = 3;
 
-const gameEngine = (gameInfo, getGameData) => {
+export default (gameInfo, getGameData) => {
   console.log('----------------------');
   console.log(gameInfo);
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   for (let counter = 0; counter < numberOfTries; counter += 1) {
     const gameData = getGameData();
-    const { question } = gameData;
-    const { correctAnswer } = gameData;
+    const { question, correctAnswer } = gameData;
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
     if (userAnswer !== correctAnswer) {
@@ -22,5 +21,3 @@ const gameEngine = (gameInfo, getGameData) => {
   }
   console.log(`Congratulations, ${userName}!`);
 };
-
-export default gameEngine;

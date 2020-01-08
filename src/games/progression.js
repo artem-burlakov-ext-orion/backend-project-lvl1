@@ -1,4 +1,4 @@
-import gameEngine from '..';
+import runEngine from '..';
 import getRandomNumber from '../utils';
 
 const hiddenNumSymbol = '..';
@@ -7,35 +7,29 @@ const operators = ['-', '+'];
 
 const gameInfo = 'What number is missing in the progression?';
 
-const getProgressionData = (length) => {
-  const randomNumber = getRandomNumber(1, 10);
-  const index = getRandomNumber(0, operators.length - 1);
-  const operator = operators[index];
-  const stepOfProgression = Number(operator + randomNumber);
-  const progression = [getRandomNumber(1, 100)];
-  const hiddenElemIndex = getRandomNumber(0, length - 1);
-  const hiddenElem = progression[0] + hiddenElemIndex * stepOfProgression;
-  for (let i = 1; i < length; i += 1) {
-    const newElem = progression[i - 1] + stepOfProgression;
+const getQuestion = (firstElem, step, index) => {
+  const progression = [firstElem];
+  for (let i = 2; i <= lengthOfProgression; i += 1) {
+    const newElem = progression[0] + (i - 1) * step;
     progression.push(newElem);
   }
-  progression[hiddenElemIndex] = hiddenNumSymbol;
-  return {
-    progression,
-    hiddenElem,
-  };
+  progression[index] = hiddenNumSymbol;
+  return progression.join(' ');
 };
 
 const getGameData = () => {
-  const progressionData = getProgressionData(lengthOfProgression);
-  const question = progressionData.progression.join(' ');
-  const correctAnswer = `${progressionData.hiddenElem}`;
+  const randomNumber = getRandomNumber(1, 10);
+  const operator = operators[getRandomNumber(0, operators.length - 1)];
+  const step = Number(`${operator}${randomNumber}`);
+  const progression = [getRandomNumber(1, 100)];
+  const hiddenElemIndex = getRandomNumber(0, lengthOfProgression - 1);
+  const hiddenElem = progression[0] + hiddenElemIndex * step;
+  const question = getQuestion(progression[0], step, hiddenElemIndex);
+  const correctAnswer = String(hiddenElem);
   return {
     question,
     correctAnswer,
   };
 };
 
-export default function () {
-  return gameEngine(gameInfo, getGameData);
-}
+export default () => runEngine(gameInfo, getGameData);
