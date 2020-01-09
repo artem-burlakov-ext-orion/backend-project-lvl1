@@ -19,7 +19,7 @@ const getQuestion = (firstElem, step, index) => {
 
 const getGameData = () => {
   const randomNumber = getRandomNumber(1, 10);
-  const sign = signs[getRandomNumber(0, operators.length - 1)];
+  const sign = signs[getRandomNumber(0, signs.length - 1)];
   const step = Number(`${sign}${randomNumber}`);
   const firstElem = getRandomNumber(1, 100);
   const hiddenElemIndex = getRandomNumber(0, lengthOfProgression - 1);
