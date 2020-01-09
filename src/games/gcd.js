@@ -19,7 +19,7 @@ const getGameData = () => {
   const firstNumber = getRandomNumber(1, 100);
   const secondNumber = getRandomNumber(1, 100);
   const question = `${firstNumber} ${secondNumber}`;
-  const correctAnswer = `${getGcd(firstNumber, secondNumber)}`;
+  const correctAnswer = String(getGcd(firstNumber, secondNumber));
   return {
     question,
     correctAnswer,

@@ -3,14 +3,14 @@ import getRandomNumber from '../utils';
 
 const hiddenNumSymbol = '..';
 const lengthOfProgression = 10;
-const operators = ['-', '+'];
+const signs = ['-', '+'];
 
 const gameInfo = 'What number is missing in the progression?';
 
 const getQuestion = (firstElem, step, index) => {
-  const progression = [firstElem];
-  for (let i = 2; i <= lengthOfProgression; i += 1) {
-    const newElem = progression[0] + (i - 1) * step;
+  const progression = [];
+  for (let i = 0; i < lengthOfProgression; i += 1) {
+    const newElem = firstElem + i * step;
     progression.push(newElem);
   }
   progression[index] = hiddenNumSymbol;
@@ -19,8 +19,8 @@ const getQuestion = (firstElem, step, index) => {
 
 const getGameData = () => {
   const randomNumber = getRandomNumber(1, 10);
-  const operator = operators[getRandomNumber(0, operators.length - 1)];
-  const step = Number(`${operator}${randomNumber}`);
+  const sign = signs[getRandomNumber(0, operators.length - 1)];
+  const step = Number(`${sign}${randomNumber}`);
   const firstElem = getRandomNumber(1, 100);
   const hiddenElemIndex = getRandomNumber(0, lengthOfProgression - 1);
   const hiddenElem = firstElem + hiddenElemIndex * step;
