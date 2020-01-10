@@ -7,10 +7,30 @@
 
 install:
 <p>
-  <a href="https://asciinema.org/a/7EyZoJrerYvOMYgSHGzx5gILx"><img src="https://asciinema.org/a/7EyZoJrerYvOMYgSHGzx5gILx.png" width="400"/></a>
+  <a href="https://asciinema.org/a/lnYe2lkPMwL9fj1VG9zWHm0NE"><img src="https://asciinema.org/a/lnYe2lkPMwL9fj1VG9zWHm0NE.png" width="400"/></a>
 </p>
   
-games:
+brain-even:
 <p>
-  <a href="https://asciinema.org/a/T3bFRAhCSGR5ZR3LRMIW7OZeX"><img src="https://asciinema.org/a/T3bFRAhCSGR5ZR3LRMIW7OZeX.png" width="400"/></a>
+  <a href="https://asciinema.org/a/ko2295dg6kyVKckUWMOSmywr9"><img src="https://asciinema.org/a/ko2295dg6kyVKckUWMOSmywr9.png" width="400"/></a>
+</p>
+
+brain-calc:
+<p>
+  <a href="https://asciinema.org/a/Os6L3t4Q0rpgXJm4iSNjpBEjr"><img src="https://asciinema.org/a/Os6L3t4Q0rpgXJm4iSNjpBEjr.png" width="400"/></a>
+</p>
+
+brain-gcd:
+<p>
+  <a href="https://asciinema.org/a/Q3FJqbfcPedw1hWXJ957aXb0g"><img src="https://asciinema.org/a/Q3FJqbfcPedw1hWXJ957aXb0g.png" width="400"/></a>
+</p>
+
+brain-prime:
+<p>
+  <a href="https://asciinema.org/a/YsnSfDC095smB0v7dNUwvuWfU"><img src="https://asciinema.org/a/YsnSfDC095smB0v7dNUwvuWfU.png" width="400"/></a>
+</p>
+
+brain-progression:
+<p>
+  <a href="https://asciinema.org/a/j0AaWUJkBoOSJM3qz2zZdOH1k"><img src="https://asciinema.org/a/j0AaWUJkBoOSJM3qz2zZdOH1k.png" width="400"/></a>
 </p>
